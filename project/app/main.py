@@ -7,6 +7,7 @@ from fastapi import FastAPI
 
 from app.api import ping, summaries  # updated
 from app.db import init_db
+from fastapi.middleware.cors import CORSMiddleware
 
 
 log = logging.getLogger("uvicorn")
