@@ -17,6 +17,14 @@ def create_application() -> FastAPI:
     application.include_router(ping.router)
     application.include_router(summaries.router, prefix="/summaries", tags=["summaries"])  # new
 
+    application.add_middleware(  # new
+            CORSMiddleware,
+            allow_origins=["*"],  # tighten this to your actual frontend URL once deployed
+            allow_credentials=True,
+            allow_methods=["*"],
+            allow_headers=["*"],
+        )
+        
     return application
 
 
