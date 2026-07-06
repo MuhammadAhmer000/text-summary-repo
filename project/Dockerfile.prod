@@ -27,4 +27,5 @@ COPY . .
 RUN chown -R app:app $APP_HOME
 USER app
 
-CMD gunicorn --bind 0.0.0.0:$PORT app.main:app -k uvicorn.workers.UvicornWorker
+CMD aerich upgrade && gunicorn --bind 0.0.0.0:$PORT app.main:app -k uvicorn.workers.UvicornWorker
+
