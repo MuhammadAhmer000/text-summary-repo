@@ -1,14 +1,15 @@
 # project/app/api/crud.py
 
-from typing import Union
+from typing import List, Union
+
 from app.models.pydantic import SummaryPayloadSchema
 from app.models.tortoise import TextSummary
-from typing import Union, List
 from app.summarizer import generate_summary
 
 
 async def post(payload: SummaryPayloadSchema) -> int:
-    summary = TextSummary(url=payload.url, summary="")
+    article_summary = generate_summary(str(payload.url))
+    summary = TextSummary(url=payload.url, summary=article_summary)
     await summary.save()
     return summary.id
 

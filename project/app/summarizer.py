@@ -1,15 +1,10 @@
 # project/app/summarizer.py
 
-
-import asyncio
-
 import nltk
 from newspaper import Article
 
-from app.models.tortoise import TextSummary
 
-
-async def generate_summary(summary_id: int, url: str) -> None:
+def generate_summary(url: str) -> str:
     article = Article(url)
     article.download()
     article.parse()
@@ -21,8 +16,4 @@ async def generate_summary(summary_id: int, url: str) -> None:
     finally:
         article.nlp()
 
-    summary = article.summary
-
-    await asyncio.sleep(10)
-
-    await TextSummary.filter(id=summary_id).update(summary=summary)
+    return article.summary
