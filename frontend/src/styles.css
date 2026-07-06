@@ -1,0 +1,261 @@
+:root {
+  --paper: #f7f8f6;
+  --ink: #1b1e1c;
+  --ink-soft: #565f59;
+  --line: #dbe1dc;
+  --accent: #2b6e63;
+  --accent-soft: #e4efec;
+  --danger: #a3402f;
+  --danger-soft: #f6e9e6;
+
+  --font-display: "Source Serif 4", Georgia, serif;
+  --font-ui: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+}
+
+.shell {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 56px 24px 96px;
+}
+
+.masthead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.masthead h1 {
+  font-family: var(--font-display);
+  font-size: 34px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.masthead .count {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.subhead {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin: 0 0 32px;
+}
+
+/* --- form --- */
+
+.new-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 40px;
+}
+
+.new-form input {
+  flex: 1;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: white;
+  color: var(--ink);
+}
+
+.new-form input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  border-color: var(--accent);
+}
+
+.btn {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px 18px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #235a51;
+}
+
+.btn-primary:disabled {
+  background: var(--line);
+  color: var(--ink-soft);
+  cursor: not-allowed;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink-soft);
+  border-color: var(--line);
+}
+
+.btn-ghost:hover {
+  color: var(--ink);
+  border-color: var(--ink-soft);
+}
+
+.btn-danger {
+  background: transparent;
+  color: var(--danger);
+  border-color: var(--danger-soft);
+}
+
+.btn-danger:hover {
+  background: var(--danger-soft);
+}
+
+.error-banner {
+  background: var(--danger-soft);
+  color: var(--danger);
+  font-size: 13px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin-bottom: 24px;
+}
+
+/* --- list --- */
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  border-top: 1px solid var(--line);
+  padding: 20px 0;
+}
+
+.card:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  cursor: pointer;
+}
+
+.card-url {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--accent);
+  word-break: break-all;
+}
+
+.card-meta {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-top: 4px;
+}
+
+.card-toggle {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  color: var(--ink-soft);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.card-body {
+  margin-top: 16px;
+}
+
+.summary-text {
+  font-family: var(--font-display);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+  white-space: pre-line;
+  margin: 0 0 16px;
+}
+
+.summary-empty {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0 0 16px;
+}
+
+.card-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.edit-form input,
+.edit-form textarea {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: white;
+  color: var(--ink);
+  resize: vertical;
+}
+
+.edit-form textarea {
+  min-height: 90px;
+  font-family: var(--font-display);
+  font-size: 14px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 64px 0;
+  color: var(--ink-soft);
+}
+
+.empty-state p:first-child {
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
